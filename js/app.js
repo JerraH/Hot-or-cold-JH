@@ -12,6 +12,20 @@ $(document).ready(function(){
   		$(".overlay").fadeOut(1000);
   	});
 
+  	$('li .new').click(function() {
+  		var q = confirm("Do you really want to start a new game?");
+  		if (q == true) {
+	  		$("#userGuess").val('');
+			$('#feedback').val('');
+			$("#feedback").text("Make Your Guess!");
+			$('#count').text(0);
+			$('#guessList').children().remove();
+			hidNum = Math.floor((Math.random() * 100)+1);
+			console.log(hidNum);
+			i=1;
+		}
+	});
+
   	// Define variables
 	var hidNum = Math.floor((Math.random() * 100)+1),
   		i = 1,
@@ -75,7 +89,7 @@ $(document).ready(function(){
 
   			function compare() {
 		if	(diff == 0) {
-  			var r = confirm("Yay!  You won!  Would you like to play another game?");
+  			var r = confirm("So hot you make a dragon wanna RETIRE, yo.  What do you say?  Go again?");
 					if (r == true) {
 							$("#userGuess").val('');
 							$('#feedback').val('');
@@ -84,6 +98,7 @@ $(document).ready(function(){
 							$('#guessList').children().remove();
 							hidNum = Math.floor((Math.random() * 100)+1);
 							console.log(hidNum);
+							i=1;
 							return;
 						}
 						else {
@@ -128,7 +143,25 @@ $(document).ready(function(){
   			$("#userGuess").val('');
   			i++;
 			console.log(oldDiff);
-  		};
+  		}
+
+  		else if (diff < 5) {
+  			colder0rHotter();
+  			alert("So close you can almost smell it.")
+  			addList();
+  			$("#userGuess").val('');
+  			i++;
+			console.log(oldDiff);
+  		}
+
+  		else if (diff <3) {
+  			colder0rHotter();
+  			alert("You're on FIRE, yo!")
+  			addList();
+  			$("#userGuess").val('');
+  			i++;
+			console.log(oldDiff);
+  		}
   	};
 
   	compare();
