@@ -89,7 +89,7 @@ $(document).ready(function(){
 
   			function compare() {
 		if	(diff == 0) {
-  			var r = confirm("So hot you make a dragon wanna RETIRE, yo.  What do you say?  Go again?");
+  			var r = confirm("So hot you make a dragon wanna RETIRE, yo.  What do you say?  Want to go again?");
 					if (r == true) {
 							$("#userGuess").val('');
 							$('#feedback').val('');
@@ -136,7 +136,7 @@ $(document).ready(function(){
   		}
 
 // if less than 10 
-  		else if (diff < 10) {
+  		else if (5 < diff <= 10) {
   			colderOrHotter();
   			alert("Whoa, gettin' pretty hot there, cowboy!");
   			addList();
@@ -145,8 +145,8 @@ $(document).ready(function(){
 			console.log(oldDiff);
   		}
 
-  		else if (diff < 5) {
-  			colder0rHotter();
+  		else if (3 < diff <= 5) {
+  			colderOrHotter();
   			alert("So close you can almost smell it.")
   			addList();
   			$("#userGuess").val('');
@@ -154,8 +154,8 @@ $(document).ready(function(){
 			console.log(oldDiff);
   		}
 
-  		else if (diff <3) {
-  			colder0rHotter();
+  		else if (0 < diff <= 3) {
+  			colderOrHotter();
   			alert("You're on FIRE, yo!")
   			addList();
   			$("#userGuess").val('');
